@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travelstud.com - book your travel nepak </title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelStud.com - Book Your Travel Nepal</title>
+    <style>
+        :root {
+            --bg-sunset-1: #ff6b4a;
+            --bg-sunset-2: #ff9e44;
+            --bg-valley-1: #0f3d3e;
+            --bg-valley-2: #1c6758;
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --text-dark: #102a27;
+            --text-muted: #526865;
+            --accent-primary: #e65100;
+            --accent-secondary: #00897b;
+            --border-soft: #d9e4e2;
+            --focus-ring: rgba(0, 137, 123, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            padding: 36px 18px;
+            color: var(--text-dark);
+            background:
+                radial-gradient(circle at 15% 15%, rgba(255, 193, 7, 0.35), transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(255, 87, 34, 0.35), transparent 45%),
+                linear-gradient(135deg, var(--bg-valley-1) 0%, var(--bg-valley-2) 48%, var(--bg-sunset-1) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-header {
+            text-align: center;
+            max-width: 720px;
+            margin-bottom: 28px;
+            color: #ffffff;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+            margin-bottom: 12px;
+        }
+
+        .hero-header h1 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: capitalize;
+            text-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+            margin-bottom: 8px;
+        }
+
+        .hero-header h1 span {
+            background: linear-gradient(90deg, #ffe082, #ffccbc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-header p {
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .booking-card {
+            width: 100%;
+            max-width: 760px;
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-secondary);
+            margin: 18px 0 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px dashed var(--border-soft);
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: capitalize;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1.5px solid var(--border-soft);
+            background: #ffffff;
+            color: var(--text-dark);
+            font-size: 0.96rem;
+            font-family: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+        }
+
+        input[type="text"]:hover,
+        input[type="email"]:hover,
+        input[type="number"]:hover,
+        input[type="date"]:hover {
+            border-color: #9ec5bf;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus {
+            outline: none;
+            border-color: var(--accent-secondary);
+            box-shadow: 0 0 0 4px var(--focus-ring);
+            transform: translateY(-1px);
+        }
+
+        .checkbox-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: linear-gradient(120deg, rgba(0, 137, 123, 0.08), rgba(255, 158, 68, 0.12));
+            border: 1.5px solid rgba(0, 137, 123, 0.25);
+            cursor: pointer;
+        }
+
+        .checkbox-box input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-primary);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-box label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 24px;
+            padding: 15px 24px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #ff7043 55%, var(--bg-sunset-2) 100%);
+            background-size: 200% 200%;
+            box-shadow: 0 12px 24px rgba(230, 81, 0, 0.35);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.35s ease;
+        }
+
+        .submit-btn:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(230, 81, 0, 0.45);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        @media (max-width: 640px) {
+            .booking-card {
+                padding: 22px 18px;
+                border-radius: 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-header">
+        <div class="badge">TravelStud.com • Himalayas &amp; Beyond</div>
+        <h1>Book Your Travel <span>Nepal</span></h1>
+        <p>Fill out the form below to book your trip!</p>
+    </header>
+
+    <main class="booking-card">
+        <form action="#" method="post">
+            <div class="section-title">Traveler Details</div>
+            <div class="form-grid">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. Aarav Sharma" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="aarav@example.com" required>
+                </div>
+
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="1" max="120" placeholder="25" required>
+                </div>
+
+                <div class="field">
+                    <label for="gender">Gender</label>
+                    <input type="text" id="gender" name="gender" placeholder="Male / Female / Other" required>
+                </div>
+
+                <div class="field">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" placeholder="+977 / +91 XXXXX XXXXX" required>
+                </div>
+
+                <div class="field">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="City, State / District" required>
+                </div>
+            </div>
+
+            <div class="section-title">Trip Schedule &amp; Preferences</div>
+            <div class="form-grid">
+                <div class="field field-full">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" name="destination" placeholder="Kathmandu, Pokhara, Everest Base Camp, Lumbini..." required>
+                </div>
+
+                <div class="field">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                </div>
+
+                <div class="field">
+                    <label for="end-date">End Date</label>
+                    <input type="date" id="end-date" name="end-date" required>
+                </div>
+
+                <div class="field field-full">
+                    <div class="checkbox-box">
+                        <input type="checkbox" id="only-advance-booking" name="only-advance-booking" required>
+                        <label for="only-advance-booking">Only Advance Booking</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Book Now</button>
+        </form>
+    </main>
+
+    <footer class="footer-note">
+        TravelStud.com &mdash; Crafted for memorable Nepal journeys
+    </footer>
+</body>
+</html>
+</head>
+<body>
+    <h1>book your travel nepal</h1>
+    <p>Fill out the form below to book your trip!</p>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required><br><br>
+
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" name="start-date" required><br><br>
+
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" name="end-date" required><br><br>
+
+        <input type="submit" value="Book Now">
+        <div>
+            <label for="age">age</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+    <div>
+        label for="gender">gender</label>
+        <input type="text" id="gender" name="gender" required>
+    </div>
+    <div>
+        label for="address">address</label>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <div>
+        label for="phone">phone</label>
+        <input type="text" id="phone" name="phone" required>
+    </div>
+    <div>
+        label for="only advance booking">only advance booking</label>
+        <input type="checkbox" id="only advance booking" name="only advance booking" required>
+    </div>
+</body>
+</html>
